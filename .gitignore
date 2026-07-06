@@ -1,0 +1,24 @@
+# Secrets / IdP material — never commit
+.env
+.env.*
+okta.cert
+*.pem
+*.key
+config.json
+
+# Never commit real tokens or assertions
+*.saml-response
+raw-token*.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Evidence hygiene: redact org subdomain + real UPNs before committing screenshots

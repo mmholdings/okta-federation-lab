@@ -1,0 +1,25 @@
+# Captured 2026-07-06T04:19:46Z - SAML SP + OIDC RP offline validation self-tests (no Okta, no network)
+$ python3 src/oidc-rp/app.py --selftest
+  [PASS] PKCE verifier length in 43..128
+  [PASS] PKCE S256 challenge reproducible
+  [PASS] valid token accepted
+  [PASS] wrong aud rejected
+  [PASS] expired token rejected
+  [PASS] bad nonce rejected
+  [PASS] wrong issuer rejected
+  [PASS] tampered payload rejected
+ALL CHECKS PASSED
+
+$ python3 src/saml-sp/app.py --selftest
+  [PASS] AuthnRequest carries our ACS
+  [PASS] AuthnRequest ID starts with _ (xs:ID rule)
+  [PASS] DEFLATE round-trips
+  [PASS] valid assertion accepted
+  [PASS] attributes extracted
+  [PASS] unsigned assertion rejected
+  [PASS] wrong audience rejected
+  [PASS] wrong recipient rejected
+  [PASS] bad InResponseTo rejected
+  [PASS] expired assertion rejected
+  [PASS] failed status rejected
+ALL CHECKS PASSED
